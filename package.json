@@ -1,0 +1,16 @@
+{
+  "name": "symbolic-bank",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Companion code for 'The role of symbolic execution in security (aka How to leverage math to rob a bank)'",
+  "scripts": {
+    "check:vuln": "node scripts/check.js contracts/Bank.sol --expect=violation",
+    "check:fixed": "node scripts/check.js contracts/BankFixed.sol --expect=safe",
+    "check": "npm run check:vuln && npm run check:fixed",
+    "z3": "python3 z3/bank_z3.py",
+    "test": "forge test -vv"
+  },
+  "dependencies": {
+    "solc": "0.8.28"
+  }
+}
